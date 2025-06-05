@@ -1,0 +1,26 @@
+.card.px-2.mb-4
+  .card-body
+    .card-title.border-bottom.mb-4
+      h3.pb-2 Мои объявления
+
+      = render partial: 'search_form', locals: { q: @q }
+
+    table.table.table-striped
+      thead
+        tr
+          th Название
+          th Состояние
+          th Дата создания
+          th Действия
+      tbody
+        - @bulletins.each do |bulletin|
+          tr
+            td = link_to bulletin.title, bulletin_path(bulletin)
+            td = bulletin.state
+            td = bulletin.created_at
+            td
+              = link_to 'Редактировать', edit_bulletin_path(bulletin), class: 'btn btn-sm btn-outline-secondary me-2'
+              - if bulletin.may_to_moderate?
+                = link_to 'На модерацию', to_moderate_bulletin_path(bulletin), data: { turbo_method: :patch }, class: 'btn btn-sm btn-outline-primary me-2'
+              - if bulletin.may_archive?
+                = link_to 'В архив', archive_bulletin_path(bulletin), data: { turbo_method: :patch }, class: 'btn btn-sm btn-outline-danger'

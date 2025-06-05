@@ -19,6 +19,10 @@ gem 'sentry-ruby'
 gem 'omniauth-github'
 gem 'omniauth-rails_csrf_protection'
 
+gem 'aasm'
+gem 'pundit'
+gem 'ransack'
+
 gem 'active_storage_validations'
 gem 'aws-sdk-s3'
 gem 'file_validators'

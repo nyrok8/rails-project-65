@@ -6,7 +6,12 @@ class Web::AuthController < Web::ApplicationController
     user.name ||= auth.info.name
     user.save
 
-    session[:user_id] = user.id
+    sign_in(user)
+    redirect_to root_path
+  end
+
+  def destroy
+    sign_out
     redirect_to root_path
   end
 
