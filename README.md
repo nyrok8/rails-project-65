@@ -4,6 +4,8 @@
 
 [![CI](https://github.com/nyrok8/rails-project-65/actions/workflows/ci.yml/badge.svg)](https://github.com/nyrok8/rails-project-65/actions/workflows/ci.yml)
 
+[![Open App](https://img.shields.io/badge/rails-project--65-grey?style=for-the-badge&labelColor=white&logo=rubyonrails&logoColor=black)](https://rails-project-65-c0wj.onrender.com/)
+
 ## Rails-project-65
 
 **Ruby**: 3.2.2  
