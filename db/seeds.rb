@@ -17,7 +17,7 @@ User.create!(
 end
 
 @categories = Array.new(5) do
-  Category.create!(name: Faker::Commerce.unique.department(max: 1, fixed_amount: true))
+  Category.create!(name: Faker::Commerce.unique.department(max: 1))
 end
 
 def create_bulletin(state)
@@ -41,14 +41,22 @@ def create_bulletin(state)
   bulletin.save!
 end
 
-15.times do
+50.times do
   create_bulletin(:published)
 end
 
-5.times do
+20.times do
   create_bulletin(:under_moderation)
 end
 
-5.times do
+10.times do
   create_bulletin(:draft)
+end
+
+5.times do
+  create_bulletin(:rejected)
+end
+
+5.times do
+  create_bulletin(:archived)
 end

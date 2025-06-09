@@ -30,6 +30,8 @@ gem 'aws-sdk-s3'
 gem 'file_validators'
 gem 'image_processing'
 
+gem 'faker'
+
 gem 'tzinfo-data', platforms: %i[windows jruby]
 
 gem 'bootsnap', require: false
@@ -50,7 +52,6 @@ group :development, :test do
 end
 
 group :test do
-  gem 'faker'
   gem 'minitest-power_assert'
 end
 
