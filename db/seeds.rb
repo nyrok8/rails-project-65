@@ -9,6 +9,12 @@ User.create!(
   admin: true
 )
 
+User.create!(
+  name: 'vasiliqa13',
+  email: 'vasiliqa13@gmail.com',
+  admin: true
+)
+
 @users = Array.new(5) do
   User.create!(
     name: Faker::JapaneseMedia::OnePiece.unique.character,
