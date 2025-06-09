@@ -1,0 +1,33 @@
+ru:
+  web:
+    bulletins:
+      index:
+        title: Объявления
+      new:
+        title: Добавить объявление
+      edit:
+        title: Редактировать объявление
+      create:
+        success: Объявление опубликовано.
+        failure: "Не удалось создать объявление. Проверьте введенные данные:"
+      update:
+        success: Объявление обновлено.
+        failure: "Не удалось обновить объявление. Проверьте введенные данные:"
+      profile:
+        title: Мои объявления
+      
+      done_actions:
+        to_moderate:
+          done: Объявление отправлено на модерацию.
+        reject:
+          done: Объявление возвращено.
+        publish:
+          done: Объявление опубликовано.
+        archive:
+          done: Объявление отправлено в архив.
+
+      actions:
+        to_moderate: На модерацию
+        reject: Вернуть
+        publish: Опубликовать
+        archive: В архив

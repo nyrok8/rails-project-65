@@ -1,0 +1,29 @@
+ru:
+  activerecord:
+    attributes:
+      bulletin:
+        title: Заголовок
+        description: Описание
+        image: Фотография
+        category: Категория
+
+        aasm:
+          states:
+            draft: Черновик
+            under_moderation: На модерации
+            rejected: Возвращено
+            published: Опубликовано
+            archived: В архиве
+      
+      category:
+        name: Название
+
+    errors:
+      messages:
+        blank: не может быть пустым.
+        too_short: "недостаточной длины (не может быть меньше %{count} символов)."
+        required: не может отсутствовать.
+
+  support:
+    array:
+      two_words_connector: " и "

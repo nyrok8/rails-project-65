@@ -1,0 +1,8 @@
+ru:
+  web:
+    admin:
+      bulletins:
+        index:
+          title: Все объявления
+        under_moderation:
+          title: Объявления на модерации

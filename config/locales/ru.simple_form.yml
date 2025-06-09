@@ -1,0 +1,17 @@
+ru:
+  simple_form:
+    "yes": 'ДА'
+    "no": 'Нет'
+    required:
+      text: 'обязательное'
+      mark: '*'
+    error_notification:
+      default_message: "Пожалуйста, исправьте ошибки:"
+  helpers:
+    submit:
+      bulletin:
+        create: Создать обяъвление
+        update: Сохранить обяъвление
+      category:
+        create: Создать категорию
+        update: Сохранить категорию

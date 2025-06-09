@@ -1,0 +1,5 @@
+.card.h-100 = link_to bulletin_path(bulletin), class: 'text-dark text-decoration-none'
+  .p-1.border-bottom
+    = image_tag bulletin.image, class: 'card-img-top', style: 'height: 200px; object-fit: contain;'
+  .card-body
+    h6 = bulletin.title

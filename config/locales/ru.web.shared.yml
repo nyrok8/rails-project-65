@@ -1,0 +1,9 @@
+ru:
+  web:
+    shared:
+      search_form:
+        title_cont_hint: Искать по названию объявления
+        state_eq_hint: Выбрать состояние
+        category_id_eq_hint: Выбрать категорию
+        search: Найти
+        clear: Сброс

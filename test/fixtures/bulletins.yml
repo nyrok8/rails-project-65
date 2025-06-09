@@ -1,0 +1,20 @@
+draft:
+  title: bulletin1
+  description: bulletin1 description
+  user: one
+  category: one
+  state: draft
+
+published:
+  title: bulletin2
+  description: bulletin2 description
+  user: one
+  category: one
+  state: published
+
+under_moderation:
+  title: bulletin3
+  description: bulletin3 description
+  user: one
+  category: one
+  state: under_moderation

@@ -1,0 +1,30 @@
+.row
+  .col-md-3
+    = render 'web/admin/shared/menu'
+
+  .col-md-9
+    .card.px-2.mb-4
+      .card-body
+        .card-title.border-bottom.mb-4
+          h3.pb-2 = t('.title')
+
+        table.table.table-striped
+          thead
+            tr
+              th = t('table.name')
+              th = t('table.creation_date')
+              th = t('table.actions')
+          tbody
+            - @bulletins.each do |bulletin|
+              tr
+                td = link_to bulletin.title, bulletin_path(bulletin)
+                td = l bulletin.created_at, format: :short
+                td
+                  - if bulletin.may_publish?
+                    = link_to t('web.bulletins.actions.publish'), publish_admin_bulletin_path(bulletin), data: { turbo_method: :patch }, class: 'btn btn-sm btn-outline-success me-2'
+                  - if bulletin.may_reject?
+                    = link_to t('web.bulletins.actions.reject'), reject_admin_bulletin_path(bulletin), data: { turbo_method: :patch }, class: 'btn btn-sm btn-outline-warning me-2'
+                  - if bulletin.may_archive?
+                    = link_to t('web.bulletins.actions.archive'), archive_admin_bulletin_path(bulletin), data: { turbo_method: :patch }, class: 'btn btn-sm btn-outline-danger'
+
+        == pagy_bootstrap_nav(@pagy)

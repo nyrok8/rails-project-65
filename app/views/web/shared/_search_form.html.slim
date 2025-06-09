@@ -1,0 +1,36 @@
+- fields = Array(fields).index_with(true) if fields.is_a?(Symbol) || fields.is_a?(Array)
+- fields ||= {}
+
+= search_form_for q, url: url, builder: SimpleForm::FormBuilder do |f|
+  .row.g-3
+    - if fields[:title_cont]
+      .col
+        = f.input :title_cont,
+                  input_html: { class: 'form-control' },
+                  hint: t('.title_cont_hint'),
+                  label: false,
+                  required: false
+
+    - if fields[:state_eq]
+      .col
+        = f.input :state_eq,
+                  as: :select,
+                  collection: state_options,
+                  input_html: { class: 'form-select' },
+                  hint: t('.state_eq_hint'),
+                  label: false,
+                  required: false
+
+    - if fields[:category_id_eq]
+      .col
+        = f.input :category_id_eq,
+                  as: :select,
+                  collection: Category.all,
+                  input_html: { class: 'form-select' },
+                  hint: t('.category_id_eq_hint'),
+                  label: false,
+                  required: false
+
+    .col-auto
+      = f.submit t('.search'), class: 'btn btn-primary me-2'
+      = link_to t('.clear'), url, class: 'btn btn-secondary'

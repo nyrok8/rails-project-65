@@ -1,0 +1,9 @@
+.list-group
+  = link_to t('web.admin.bulletins.under_moderation.title'), admin_root_path,
+      class: "list-group-item list-group-item-action#{' active' if current_page?(admin_root_path)}"
+
+  = link_to t('web.admin.bulletins.index.title'), admin_bulletins_path,
+      class: "list-group-item list-group-item-action#{' active' if current_page?(admin_bulletins_path)}"
+
+  = link_to t('web.admin.categories.index.title'), admin_categories_path,
+      class: "list-group-item list-group-item-action#{' active' if current_page?(admin_categories_path)}"
