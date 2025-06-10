@@ -26,6 +26,8 @@
                 td = l bulletin.created_at, format: :short
                 td
                   - if bulletin.may_archive?
-                    = link_to t('web.bulletins.actions.archive'), archive_bulletin_path(bulletin), data: { turbo_method: :patch }, class: 'btn btn-sm btn-outline-danger'
+                    = link_to t('web.bulletins.actions.archive'), archive_bulletin_path(bulletin),
+                      data: { turbo_method: :patch, confirm: t('confirm') },
+                      class: 'btn btn-sm btn-outline-danger'
 
         == pagy_bootstrap_nav(@pagy)

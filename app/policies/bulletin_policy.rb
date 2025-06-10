@@ -6,7 +6,9 @@ class BulletinPolicy < ApplicationPolicy
   end
 
   def show?
-    true
+    return true if record.published?
+
+    user.present? && (record.user == user || user.admin?)
   end
 
   def create?

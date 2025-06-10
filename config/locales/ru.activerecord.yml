@@ -19,6 +19,13 @@ ru:
         name: Название
 
     errors:
+      models:
+        category:
+          attributes:
+            base:
+              restrict_dependent_destroy:
+                has_many: Невозможно удалить категорию, к которой привязаны объявления
+        
       messages:
         blank: не может быть пустым.
         too_short: "недостаточной длины (не может быть меньше %{count} символов)."

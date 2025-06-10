@@ -17,17 +17,16 @@ ru:
         title: Мои объявления
       
       done_actions:
-        to_moderate:
-          done: Объявление отправлено на модерацию.
-        reject:
-          done: Объявление возвращено.
-        publish:
-          done: Объявление опубликовано.
-        archive:
-          done: Объявление отправлено в архив.
+        to_moderate: Объявление отправлено на модерацию.
+        reject: Объявление возвращено.
+        publish: Объявление опубликовано.
+        archive: Объявление отправлено в архив.
 
       actions:
         to_moderate: На модерацию
         reject: Вернуть
         publish: Опубликовать
         archive: В архив
+      
+      confirm:
+        archive: Подтвердить архивацию

@@ -60,7 +60,17 @@ class Web::Admin::CategoriesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should destroy category' do
+    empty_category = categories(:two)
+
     assert_difference('Category.count', -1) do
+      delete admin_category_url(empty_category)
+    end
+
+    assert_redirected_to admin_categories_url
+  end
+
+  test 'should not destroy category with bulletins' do
+    assert_no_difference('Category.count') do
       delete admin_category_url(@category)
     end
 

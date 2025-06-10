@@ -4,19 +4,24 @@ class Web::Admin::CategoriesController < Web::Admin::ApplicationController
   before_action :authenticate_user!
 
   def index
+    authorize Category
     @pagy, @categories = pagy(Category.order(:name))
   end
 
   def new
     @category = Category.new
+    authorize @category
   end
 
   def edit
     @category = Category.find(params[:id])
+    authorize @category
   end
 
   def create
     @category = Category.new(category_params)
+    authorize @category
+
     if @category.save
       redirect_to admin_categories_path, notice: t('.success')
     else
@@ -27,6 +32,8 @@ class Web::Admin::CategoriesController < Web::Admin::ApplicationController
 
   def update
     @category = Category.find(params[:id])
+    authorize @category
+
     if @category.update(category_params)
       redirect_to admin_categories_path, notice: t('.success')
     else
@@ -37,8 +44,14 @@ class Web::Admin::CategoriesController < Web::Admin::ApplicationController
 
   def destroy
     category = Category.find(params[:id])
-    category.destroy
-    redirect_to admin_categories_path, notice: t('.done')
+    authorize category
+
+    if category.destroy
+      redirect_to admin_categories_path, notice: t('.success')
+    else
+      flash[:alert] = category.errors.full_messages.to_sentence
+      redirect_to admin_categories_path
+    end
   end
 
   private
