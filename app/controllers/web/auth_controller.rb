@@ -3,7 +3,7 @@
 class Web::AuthController < Web::ApplicationController
   def callback
     user = User.find_or_initialize_by(email: auth.info.email)
-    user.name ||= auth.info.name
+    user.name = auth.info.name
     user.save
 
     sign_in(user)

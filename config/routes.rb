@@ -8,8 +8,8 @@ Rails.application.routes.draw do
 
     root 'bulletins#index'
 
-    get 'profile', to: 'bulletins#profile', as: :profile
-    resources :bulletins do
+    resource :profile, only: :show
+    resources :bulletins, except: :delete do
       member do
         patch :to_moderate
         patch :archive

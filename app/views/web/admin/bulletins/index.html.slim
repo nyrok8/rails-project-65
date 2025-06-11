@@ -22,7 +22,7 @@
             - @bulletins.each do |bulletin|
               tr
                 td = link_to bulletin.title, bulletin_path(bulletin)
-                td = state_name(bulletin)
+                td = bulletin.aasm.human_state
                 td = l bulletin.created_at, format: :short
                 td
                   - if bulletin.may_archive?

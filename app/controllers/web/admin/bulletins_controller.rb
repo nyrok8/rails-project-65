@@ -1,22 +1,17 @@
 # frozen_string_literal: true
 
 class Web::Admin::BulletinsController < Web::Admin::ApplicationController
-  before_action :authenticate_user!
-
   def index
-    authorize Bulletin, :admin_index?
     @q = Bulletin.ransack(params[:q])
     @pagy, @bulletins = pagy(@q.result.order(created_at: :desc))
   end
 
   def under_moderation
-    authorize Bulletin
     @pagy, @bulletins = pagy(Bulletin.under_moderation.order(created_at: :desc))
   end
 
   def reject
     bulletin = Bulletin.find(params[:id])
-    authorize bulletin
 
     return unless bulletin.may_reject?
 
@@ -26,7 +21,6 @@ class Web::Admin::BulletinsController < Web::Admin::ApplicationController
 
   def publish
     bulletin = Bulletin.find(params[:id])
-    authorize bulletin
 
     return unless bulletin.may_publish?
 
@@ -36,7 +30,6 @@ class Web::Admin::BulletinsController < Web::Admin::ApplicationController
 
   def archive
     bulletin = Bulletin.find(params[:id])
-    authorize bulletin
 
     return unless bulletin.may_archive?
 

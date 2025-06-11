@@ -8,42 +8,30 @@ class BulletinPolicy < ApplicationPolicy
   def show?
     return true if record.published?
 
-    user.present? && (record.user == user || user.admin?)
+    record.user_id == user.id || user.admin?
   end
 
   def create?
-    user.present?
+    true
   end
 
   def update?
-    user.present? && record.user == user
+    record.user_id == user.id
   end
 
   def to_moderate?
-    user.present? && record.user == user
+    record.user_id == user.id
   end
 
   def reject?
-    user.present? && user.admin?
+    true
   end
 
   def publish?
-    user.present? && user.admin?
+    true
   end
 
   def archive?
-    user.present? && (record.user == user || user.admin?)
-  end
-
-  def profile?
-    user.present?
-  end
-
-  def admin_index?
-    user.present? && user.admin?
-  end
-
-  def under_moderation?
-    user.present? && user.admin?
+    record.user_id == user.id
   end
 end
