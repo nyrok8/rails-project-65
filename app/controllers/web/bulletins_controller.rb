@@ -45,12 +45,6 @@ class Web::BulletinsController < Web::ApplicationController
     end
   end
 
-  def profile
-    authorize Bulletin
-    @q = current_user.bulletins.ransack(params[:q])
-    @pagy, @bulletins = pagy(@q.result)
-  end
-
   def to_moderate
     bulletin = Bulletin.find(params[:id])
     authorize bulletin

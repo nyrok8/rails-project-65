@@ -23,14 +23,6 @@ class BulletinPolicy < ApplicationPolicy
     record.user_id == user.id
   end
 
-  def reject?
-    true
-  end
-
-  def publish?
-    true
-  end
-
   def archive?
     record.user_id == user.id
   end

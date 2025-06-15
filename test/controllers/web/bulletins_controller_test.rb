@@ -108,11 +108,6 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
     assert { @draft.title.present? }
   end
 
-  test 'should get profile' do
-    get profile_url
-    assert_response :success
-  end
-
   test 'should to_moderate bulletin' do
     patch to_moderate_bulletin_url(@draft)
     assert_redirected_to root_url
